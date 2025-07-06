@@ -26,6 +26,9 @@ body {
     background-color: #2E9DF7;
     overflow: hidden;
     height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    width: 100vw;
 }
 
 /* Screen container styles */
@@ -35,12 +38,14 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
+    max-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease-in-out;
+    overflow: hidden;
 }
 
 /* Active screen is visible */
@@ -77,7 +82,7 @@ body {
 
 /* Logo styles */
 .logo {
-    width: 300x;
+    width: 300px;
     height: 300px;
     margin-bottom: 4.5rem;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
@@ -96,6 +101,8 @@ body {
     color: black;
     padding: 2rem;
     max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 h1 {
@@ -262,4 +269,234 @@ li {
 .start-button:hover {
     background-color: #FF902A;
     transform: translate(-50%, -50%);
+}
+
+/* Confetti effect styles */
+.confetti-piece {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    /* Reduce overall margins and padding */
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: fixed;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100vw;
+    }
+    
+    /* Screen content adjustments */
+    .screen-content {
+        padding: 1rem;
+        margin: 0.5rem;
+        max-width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    /* Logo adjustments */
+    .logo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Header logo adjustments */
+    .header-logo {
+        height: 30px;
+        width: auto;
+    }
+    
+    /* Text size adjustments */
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    ul {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        padding-left: 1rem;
+    }
+    
+    li {
+        margin-bottom: 0.3rem;
+    }
+    
+    /* Button adjustments */
+    .game-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+        margin: 0.3rem;
+    }
+    
+    /* Game header stacking */
+    .game-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        text-align: center;
+        align-items: center;
+    }
+    
+    /* Game stats under logo */
+    .game-stats {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #score, #lives {
+        font-size: 1rem;
+        margin: 0;
+    }
+    
+    /* Game area adjustments */
+    #gameArea {
+        min-height: calc(100vh - 120px);
+        max-height: calc(100vh - 120px);
+        padding: 0;
+        overflow: hidden;
+    }
+    
+    /* Start button adjustments */
+    .start-button {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+    
+    /* Water drops smaller on mobile */
+    .water-drop, .green-drop {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* Game controls adjustments */
+    .game-controls {
+        padding: 0.5rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    body {
+        overflow: hidden;
+        position: fixed;
+        height: 100vh;
+        max-height: 100vh;
+    }
+    
+    .screen-content {
+        padding: 0.5rem;
+        margin: 0.3rem;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .header-logo {
+        height: 25px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    p {
+        font-size: 0.9rem;
+    }
+    
+    ul {
+        font-size: 0.8rem;
+    }
+    
+    .game-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    #score, #lives {
+        font-size: 0.9rem;
+    }
+    
+    .start-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .water-drop, .green-drop {
+        width: 20px;
+        height: 20px;
+    }
+    
+    #gameArea {
+        max-height: calc(100vh - 100px);
+        overflow: hidden;
+    }
+}
+
+/* Ensure no scroll on any screen size */
+html, body {
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    width: 100vw;
+}
+
+/* Ensure no horizontal scroll */
+@media (max-width: 768px) {
+    html, body {
+        overflow: hidden;
+        height: 100vh;
+        max-height: 100vh;
+        position: fixed;
+        width: 100vw;
+    }
+    
+    * {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    
+    .screen {
+        overflow: hidden;
+        height: 100vh;
+        max-height: 100vh;
+    }
 }
