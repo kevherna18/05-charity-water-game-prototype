@@ -7,7 +7,52 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
+    <!-- Start Screen (Middle) -->
+    <div id="startScreen" class="screen active">
+        <div class="screen-content">
+            <img src="img/cw_logo.png" alt="Charity Water Logo" class="logo">
+            <h1>Water Collection Game</h1>
+            <p>Help bring clean water to communities in need!</p>
+            <button id="playButton" class="game-button">Play Game</button>
+            <button id="instructionsButton" class="game-button">Instructions</button>
+        </div>
+    </div>
+
+    <!-- Instructions Screen (Left) -->
+    <div id="instructionsScreen" class="screen">
+        <div class="screen-content">
+            <img src="img/cw_logo.png" alt="Charity Water Logo" class="logo">
+            <h2>How to Play</h2>
+            <ul>
+                <li>Collect water drops to fill your bucket</li>
+                <li>Avoid obstacles that slow you down</li>
+                <li>Reach the goal to help a community</li>
+                <li>Each level helps more people access clean water</li>
+            </ul>
+            <button id="backToStartButton" class="game-button">Back to Start</button>
+        </div>
+    </div>
+
+    <!-- Game Screen (Right) -->
+    <div id="gameScreen" class="screen">
+        <div class="game-header">
+            <img src="img/cw_logo_horizontal.png" alt="Charity Water Logo" class="header-logo">
+            <div class="game-stats">
+                <div id="score">Score: 0</div>
+                <div id="lives">Lives: 3</div>
+            </div>
+        </div>
+        
+        <div id="gameArea">
+            <button id="startGameButton" class="game-button start-button">Start Game</button>
+            <!-- Water drops will be added here by JavaScript -->
+        </div>
+        
+        <div class="game-controls">
+            <button id="backToMenuButton" class="game-button">Back to Menu</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

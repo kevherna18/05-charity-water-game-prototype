@@ -13,3 +13,253 @@ Secondary Colors:
 - Pink:       #F16061
 
 */
+
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2E9DF7;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Screen container styles */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Active screen is visible */
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Screen positioning */
+#startScreen {
+    background-color: #2E9DF7;
+    transform: translateX(0);
+}
+
+#instructionsScreen {
+    background-color: #4FCB53;
+    transform: translateX(-100vw);
+}
+
+#instructionsScreen.active {
+    transform: translateX(0);
+}
+
+#gameScreen {
+    background-color: #F5402C;
+    transform: translateX(100vw);
+    flex-direction: column;
+    padding: 0;
+}
+
+#gameScreen.active {
+    transform: translateX(0);
+}
+
+/* Logo styles */
+.logo {
+    width: 300x;
+    height: 300px;
+    margin-bottom: 4.5rem;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Header logo styles */
+.header-logo {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Screen content */
+.screen-content {
+    text-align: center;
+    color: black;
+    padding: 2rem;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+ul {
+    text-align: left;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Button styles */
+.game-button {
+    background-color: #FFC907;
+    color: black;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.game-button:hover {
+    background-color: #FF902A;
+    transform: translateY(-2px);
+}
+
+/* Game screen specific styles */
+#gameScreen {
+    background-color: #F5402C;
+    transform: translateX(100vw);
+    flex-direction: column;
+    padding: 0;
+}
+
+#gameScreen.active {
+    transform: translateX(0);
+}
+
+/* Game header at the top */
+.game-header {
+    width: 100%;
+    background-color: #8BD1CB;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.game-header h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.game-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Game area fills most of the screen */
+#gameArea {
+    flex: 1;
+    background-color: white;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: url('img/water-can-transparent.png'), auto;
+}
+
+/* Water drop styles */
+.water-drop {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/water-drop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: url('img/water-can-transparent.png'), pointer;
+    transition: all 0.1s ease;
+}
+
+.water-drop:hover {
+    transform: scale(1.2);
+}
+
+/* Green water drop styles */
+.green-drop {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('img/green-drop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: url('img/water-can-transparent.png'), pointer;
+    transition: all 0.1s ease;
+}
+
+.green-drop:hover {
+    transform: scale(1.2);
+}
+
+/* Game controls at the bottom */
+.game-controls {
+    width: 100%;
+    padding: 1rem;
+    background-color: #8BD1CB;
+    display: flex;
+    justify-content: center;
+}
+
+#score, #lives {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    color: white;
+}
+
+/* Start button in game area */
+.start-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    padding: 1.5rem 3rem;
+    z-index: 100;
+}
+
+.start-button:hover {
+    background-color: #FF902A;
+    transform: translate(-50%, -50%);
+}
